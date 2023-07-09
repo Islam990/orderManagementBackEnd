@@ -1,6 +1,5 @@
 package com.islamGad.orderManagementBackEnd.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity

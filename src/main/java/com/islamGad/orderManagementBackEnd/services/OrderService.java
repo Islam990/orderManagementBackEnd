@@ -2,6 +2,7 @@ package com.islamGad.orderManagementBackEnd.services;
 
 import com.islamGad.orderManagementBackEnd.DTO.OrderDto;
 import com.islamGad.orderManagementBackEnd.DTO.ProductDTO;
+import com.islamGad.orderManagementBackEnd.ProductListDuplicationException;
 import com.islamGad.orderManagementBackEnd.models.OrderPojo;
 import com.islamGad.orderManagementBackEnd.models.Product;
 import com.islamGad.orderManagementBackEnd.repository.OrderRepository;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class OrderService {
@@ -25,6 +27,7 @@ public class OrderService {
 
         OrderPojo order = new OrderPojo();
         List<Product> productList = new ArrayList<>();
+
         for (ProductDTO orderItemDto : orderDto.getProductList()) {
             Product product = new Product();
             product.setName(orderItemDto.getName());

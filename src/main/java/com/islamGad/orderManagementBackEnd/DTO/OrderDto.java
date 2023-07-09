@@ -1,6 +1,8 @@
 package com.islamGad.orderManagementBackEnd.DTO;
 
 import com.islamGad.orderManagementBackEnd.models.Product;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Size;
 
 import java.util.Date;
 import java.util.List;
@@ -9,7 +11,9 @@ public class OrderDto {
 
     private int id;
     private String date;
-    private List<ProductDTO> productList;
+
+    @Size(min=1, message = "Each order must have at least one product")
+    private List<@Valid ProductDTO> productList;
 
     public OrderDto() {
         this.date = new Date().toString();
